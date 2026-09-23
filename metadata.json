@@ -1,0 +1,6 @@
+{
+  "name": "ReThread · Clothing Exchange & Swap Marketplace",
+  "description": "A dedicated zero-cash clothing exchange and swap marketplace promoting sustainable circular fashion with fair swap value calculations, direct negotiation, and location matching.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

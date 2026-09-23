@@ -23,7 +23,8 @@ export const AdminPanelView: React.FC = () => {
     moderateItem,
     resolveDispute,
     toggleUserVerification,
-    setActiveItemModal
+    setActiveItemModal,
+    setIsProjectReportOpen
   } = useSwap();
 
   const [adminTab, setAdminTab] = useState<'analytics' | 'listings' | 'disputes' | 'users'>('analytics');
@@ -57,8 +58,19 @@ export const AdminPanelView: React.FC = () => {
           </p>
         </div>
 
-        {/* Tab Controls */}
-        <div className="flex items-center gap-1.5 bg-neutral-100 p-1 rounded-xl text-xs font-medium">
+        {/* Header Actions & Tab Controls */}
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            onClick={() => setIsProjectReportOpen(true)}
+            className="px-3 py-2 rounded-xl border border-neutral-300 text-xs font-semibold text-neutral-800 hover:bg-neutral-100 transition-colors shadow-xs flex items-center gap-1.5 bg-white cursor-pointer"
+            title="Download official Project Report document (.doc)"
+          >
+            <FileText className="w-3.5 h-3.5 text-neutral-600" />
+            <span>Download Project Report (.doc)</span>
+          </button>
+
+          {/* Tab Controls */}
+          <div className="flex items-center gap-1.5 bg-neutral-100 p-1 rounded-xl text-xs font-medium">
           <button
             onClick={() => setAdminTab('analytics')}
             className={`px-3 py-1.5 rounded-lg transition-colors ${
@@ -93,6 +105,7 @@ export const AdminPanelView: React.FC = () => {
           </button>
         </div>
       </div>
+    </div>
 
       {/* Tab 1: KPI Analytics Overview */}
       {adminTab === 'analytics' && (

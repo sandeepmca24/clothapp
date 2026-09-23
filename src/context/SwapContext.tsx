@@ -69,6 +69,8 @@ interface SwapContextType {
   setActiveNegotiationSwapId: (swapId: string | null) => void;
   isCreateListingOpen: boolean;
   setIsCreateListingOpen: (open: boolean) => void;
+  isProjectReportOpen: boolean;
+  setIsProjectReportOpen: (open: boolean) => void;
   prefilledValuation: { points: number; category: CategoryType; brand: string } | null;
   setPrefilledValuation: (val: any) => void;
 
@@ -89,6 +91,7 @@ interface SwapContextType {
   // Notifications
   notification: { message: string; type: 'success' | 'info' | 'warning' } | null;
   showNotification: (message: string, type?: 'success' | 'info' | 'warning') => void;
+  notify: (message: string, type?: 'success' | 'info' | 'warning') => void;
 }
 
 const SwapContext = createContext<SwapContextType | undefined>(undefined);
@@ -107,6 +110,7 @@ export const SwapProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [activeSwapProposalTarget, setActiveSwapProposalTarget] = useState<ClothingItem | null>(null);
   const [activeNegotiationSwapId, setActiveNegotiationSwapId] = useState<string | null>(null);
   const [isCreateListingOpen, setIsCreateListingOpen] = useState<boolean>(false);
+  const [isProjectReportOpen, setIsProjectReportOpen] = useState<boolean>(false);
   const [prefilledValuation, setPrefilledValuation] = useState<{ points: number; category: CategoryType; brand: string } | null>(null);
 
   // Filters
@@ -509,6 +513,8 @@ export const SwapProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setActiveNegotiationSwapId,
         isCreateListingOpen,
         setIsCreateListingOpen,
+        isProjectReportOpen,
+        setIsProjectReportOpen,
         prefilledValuation,
         setPrefilledValuation,
         searchQuery,
@@ -524,7 +530,8 @@ export const SwapProvider: React.FC<{ children: React.ReactNode }> = ({ children
         sortBy,
         setSortBy,
         notification,
-        showNotification
+        showNotification,
+        notify: showNotification
       }}
     >
       {children}

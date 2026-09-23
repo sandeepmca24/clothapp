@@ -2,7 +2,7 @@ import React from 'react';
 import { useSwap } from '../context/SwapContext';
 
 export const Footer: React.FC = () => {
-  const { setActiveTab } = useSwap();
+  const { setActiveTab, setIsProjectReportOpen } = useSwap();
 
   return (
     <footer className="border-t border-neutral-200 bg-white py-12 text-xs text-neutral-500">
@@ -48,6 +48,12 @@ export const Footer: React.FC = () => {
               className="hover:text-neutral-900 transition-colors"
             >
               Moderation
+            </button>
+            <button
+              onClick={() => setIsProjectReportOpen(true)}
+              className="text-neutral-900 font-semibold hover:underline transition-all flex items-center gap-1"
+            >
+              Project Report (.doc)
             </button>
           </div>
 

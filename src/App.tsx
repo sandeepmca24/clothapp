@@ -10,6 +10,7 @@ import { AdminPanelView } from './components/AdminPanelView';
 import { ItemDetailModal } from './components/ItemDetailModal';
 import { SwapRequestModal } from './components/SwapRequestModal';
 import { CreateListingModal } from './components/CreateListingModal';
+import { ProjectReportModal } from './components/ProjectReportModal';
 import { NotificationToast } from './components/NotificationToast';
 import { Footer } from './components/Footer';
 
@@ -51,6 +52,7 @@ const MainAppContent: React.FC = () => {
       <ItemDetailModal />
       <SwapRequestModal />
       <CreateListingModal />
+      <ProjectReportModal />
       <NotificationToast />
 
       {/* Clean Footer */}
